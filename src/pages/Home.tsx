@@ -13,7 +13,7 @@ const Home = () => {
 
       {/* Hero Section */}
       <main className="container mx-auto px-6 py-12 lg:py-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div data-sb-object-id="pagina-home" className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-brand-purple-light/20 rounded-full px-4 py-2 mb-8">
             <Star className="w-4 h-4 text-brand-purple-light" />
@@ -21,7 +21,7 @@ const Home = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+          <h1 data-sb-field-path="title" className="text-4xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
             Solicite seu{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               orçamento exclusivo
@@ -29,7 +29,7 @@ const Home = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p data-sb-field-path="body" className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             Transforme seu espaço com móveis que unem conforto, design e durabilidade. Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
           </p>
 
