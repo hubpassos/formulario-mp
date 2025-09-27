@@ -86,6 +86,73 @@ const Home = () => {
             </Link>
           </div>
         </div>
+
+        {/* Products Section */}
+        <section className="py-20 bg-gradient-to-br from-secondary/10 to-white/50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                Nossos Produtos
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Móveis que transformam espaços e elevam experiências
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Product 1 */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src="/src/assets/cadeira-nature.jpg" 
+                    alt="Cadeira Nature"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary mb-2">Cadeira Nature</h3>
+                  <p className="text-muted-foreground italic">
+                    Conforto e ergonomia que elevam o nível de cada atendimento.
+                  </p>
+                </div>
+              </div>
+
+              {/* Product 2 */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src="/src/assets/bancada-elegance.jpg" 
+                    alt="Bancada Elegance"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary mb-2">Bancada Elegance</h3>
+                  <p className="text-muted-foreground italic">
+                    Sofisticação e funcionalidade que impressionam desde o primeiro olhar.
+                  </p>
+                </div>
+              </div>
+
+              {/* Product 3 */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src="/src/assets/estacao-premium.jpg" 
+                    alt="Estação Premium"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary mb-2">Estação Premium</h3>
+                  <p className="text-muted-foreground italic">
+                    Design inteligente que maximiza produtividade e estilo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
