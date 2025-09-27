@@ -21,6 +21,7 @@ const formSchema = z.object({
   cidade: z.string().min(2, "Cidade deve ter pelo menos 2 caracteres").max(100, "Cidade muito longa"),
   estado: z.string().min(2, "Estado deve ter pelo menos 2 caracteres").max(50, "Estado muito longo"),
   produtos: z.array(z.string()).min(1, "Selecione pelo menos um produto"),
+  outrosProdutos: z.string().optional(),
   quantidade: z.string().min(1, "Selecione a quantidade"),
   orcamento: z.string().min(1, "Selecione a faixa de orçamento"),
   prazo: z.string().min(1, "Selecione o prazo de compra"),
@@ -45,6 +46,7 @@ const Orcamento = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       produtos: [],
+      outrosProdutos: "",
       quantidade: "",
       orcamento: "",
       prazo: "",
@@ -180,7 +182,7 @@ const Orcamento = () => {
                   </h3>
                   
                   <div className="grid md:grid-cols-2 gap-3">
-                    {["Cadeiras", "Lavatórios", "Poltronas", "Macas"].map((produto) => (
+                    {["Cadeiras", "Lavatórios", "Macas", "Outros"].map((produto) => (
                       <div key={produto} className="flex items-center space-x-2 bg-white/60 rounded-lg p-3 border border-brand-purple-light/10">
                         <Checkbox
                           id={produto}
@@ -191,6 +193,21 @@ const Orcamento = () => {
                       </div>
                     ))}
                   </div>
+                  
+                  {watchedProdutos?.includes("Outros") && (
+                    <div className="mt-3">
+                      <Label htmlFor="outrosProdutos">Especifique outros produtos</Label>
+                      <Input
+                        id="outrosProdutos"
+                        {...register("outrosProdutos")}
+                        placeholder="Descreva os produtos específicos"
+                        className="mt-1"
+                      />
+                      {errors.outrosProdutos && (
+                        <p className="text-destructive text-sm mt-1">{errors.outrosProdutos.message}</p>
+                      )}
+                    </div>
+                  )}
                   {errors.produtos && (
                     <p className="text-destructive text-sm">{errors.produtos.message}</p>
                   )}
@@ -208,7 +225,7 @@ const Orcamento = () => {
                     onValueChange={(value) => setValue("quantidade", value)}
                   >
                     <div className="grid md:grid-cols-2 gap-3">
-                      {["1-2 peças", "3-5 peças", "6-10 peças", "Mais de 10 peças"].map((qtd) => (
+                      {["1-2 peças", "3-5 peças", "Mais de 6 peças"].map((qtd) => (
                         <div key={qtd} className="flex items-center space-x-2 bg-white/60 rounded-lg p-3 border border-brand-purple-light/10">
                           <RadioGroupItem value={qtd} id={qtd} />
                           <Label htmlFor={qtd} className="font-medium">{qtd}</Label>

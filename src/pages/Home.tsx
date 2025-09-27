@@ -22,17 +22,15 @@ const Home = () => {
 
           {/* Main Headline */}
           <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
-            Solicite seu orçamento de{" "}
+            Solicite seu{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              móveis sob medida
-            </span>{" "}
-            para salões e estúdios
+              orçamento exclusivo
+            </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            Transforme seu espaço profissional com a qualidade e design exclusivo da Móveis Passos. 
-            Criamos peças únicas que elevam sua marca e encantam seus clientes.
+            Transforme seu espaço com móveis que unem conforto, design e durabilidade. Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
           </p>
 
           {/* CTA Button */}
@@ -53,7 +51,7 @@ const Home = () => {
               </div>
               <h3 className="text-lg font-semibold text-primary mb-2">Qualidade Premium</h3>
               <p className="text-muted-foreground text-sm">
-                Materiais selecionados e acabamento impecável para durar por anos
+                Durabilidade e acabamento impecável que valorizam seu espaço.
               </p>
             </div>
 
@@ -63,7 +61,7 @@ const Home = () => {
               </div>
               <h3 className="text-lg font-semibold text-primary mb-2">Design Exclusivo</h3>
               <p className="text-muted-foreground text-sm">
-                Projetos personalizados que refletem a identidade do seu negócio
+                Peças que refletem a identidade e o estilo do seu negócio.
               </p>
             </div>
 
@@ -71,11 +69,21 @@ const Home = () => {
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <Star className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-2">Atendimento Especializado</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Atendimento Humanizado</h3>
               <p className="text-muted-foreground text-sm">
-                Consultoria completa desde o projeto até a instalação
+                Cuidado e atenção em cada detalhe da sua jornada.
               </p>
             </div>
+          </div>
+
+          {/* Second CTA Button */}
+          <div className="mt-16">
+            <Link to="/orcamento">
+              <HeroButton size="default" variant="secondary" className="group">
+                Solicitar Orçamento Agora
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </HeroButton>
+            </Link>
           </div>
         </div>
       </main>
