@@ -14,6 +14,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Phone, MapPin, Package, Calculator, Calendar, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   nomeCompleto: z.string().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
@@ -68,18 +69,47 @@ const Orcamento = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    // Simula envio do formulário
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Dados do formulário:", data);
-    
-    toast({
-      title: "Solicitação enviada!",
-      description: "Recebemos sua solicitação. Em breve entraremos em contato.",
-    });
-    
-    setIsSubmitting(false);
-    navigate("/confirmacao");
+    try {
+      const { error } = await supabase
+        .from('solicitacoes_orcamento')
+        .insert([{
+          nome_completo: data.nomeCompleto,
+          whatsapp: data.whatsapp,
+          estado: data.estado,
+          produtos: data.produtos,
+          outros_produtos: data.outrosProdutos,
+          quantidade: data.quantidade,
+          orcamento: data.orcamento,
+          prazo: data.prazo,
+          informacao_adicional: data.informacaoAdicional,
+        }]);
+
+      if (error) {
+        console.error('Erro ao salvar:', error);
+        toast({
+          title: "Erro ao enviar solicitação",
+          description: "Tente novamente em alguns instantes.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      toast({
+        title: "Solicitação enviada!",
+        description: "Recebemos sua solicitação. Em breve entraremos em contato.",
+      });
+      
+      navigate("/confirmacao");
+    } catch (error) {
+      console.error('Erro:', error);
+      toast({
+        title: "Erro ao enviar solicitação",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -179,13 +209,47 @@ const Orcamento = () => {
                     ))}
                   </div>
                   
+                  {/* Conditional quantity fields for specific products */}
+                  {watchedProdutos?.includes("Cadeiras") && (
+                    <div className="mt-3">
+                      <Label htmlFor="quantidadeCadeiras">Quantidade de Cadeiras</Label>
+                      <Input
+                        id="quantidadeCadeiras"
+                        placeholder="Ex: 3 unidades"
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+                  
+                  {watchedProdutos?.includes("Lavatórios") && (
+                    <div className="mt-3">
+                      <Label htmlFor="quantidadeLavatorios">Quantidade de Lavatórios</Label>
+                      <Input
+                        id="quantidadeLavatorios"
+                        placeholder="Ex: 2 unidades"
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+                  
+                  {watchedProdutos?.includes("Macas") && (
+                    <div className="mt-3">
+                      <Label htmlFor="quantidadeMacas">Quantidade de Macas</Label>
+                      <Input
+                        id="quantidadeMacas"
+                        placeholder="Ex: 1 unidade"
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+                  
                   {watchedProdutos?.includes("Outros") && (
                     <div className="mt-3">
-                      <Label htmlFor="outrosProdutos">Especifique outros produtos</Label>
+                      <Label htmlFor="outrosProdutos">Especifique outros produtos e quantidade desejada</Label>
                       <Input
                         id="outrosProdutos"
                         {...register("outrosProdutos")}
-                        placeholder="Descreva os produtos específicos"
+                        placeholder="Ex: Bancadas - 2 unidades"
                         className="mt-1"
                       />
                       {errors.outrosProdutos && (
@@ -283,7 +347,7 @@ const Orcamento = () => {
                   <div>
                     <Textarea
                       {...register("informacaoAdicional")}
-                      placeholder="Ex: Procedimentos realizados (corte, coloração, tratamentos), cores desejadas para os móveis, dimensões do espaço, estilo preferido (moderno, clássico), quantidade de clientes atendidos por dia..."
+                      placeholder="Ex: Procedimentos realizados, cores, etc."
                       className="min-h-[120px]"
                     />
                     {errors.informacaoAdicional && (

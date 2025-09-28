@@ -104,7 +104,7 @@ const Home = () => {
               <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
-                    src="/src/assets/cadeira-nature.jpg" 
+                    src="/src/assets/cadeira-nature-new.jpg" 
                     alt="Cadeira Nature"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

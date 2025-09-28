@@ -232,6 +232,51 @@ export type Database = {
         }
         Relationships: []
       }
+      solicitacoes_orcamento: {
+        Row: {
+          created_at: string
+          estado: string
+          id: string
+          informacao_adicional: string | null
+          nome_completo: string
+          orcamento: string
+          outros_produtos: string | null
+          prazo: string
+          produtos: string[]
+          quantidade: string
+          updated_at: string
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          estado: string
+          id?: string
+          informacao_adicional?: string | null
+          nome_completo: string
+          orcamento: string
+          outros_produtos?: string | null
+          prazo: string
+          produtos: string[]
+          quantidade: string
+          updated_at?: string
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          estado?: string
+          id?: string
+          informacao_adicional?: string | null
+          nome_completo?: string
+          orcamento?: string
+          outros_produtos?: string | null
+          prazo?: string
+          produtos?: string[]
+          quantidade?: string
+          updated_at?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
       transportadoras_por_estado: {
         Row: {
           estado: string
