@@ -18,7 +18,6 @@ import { useToast } from "@/hooks/use-toast";
 const formSchema = z.object({
   nomeCompleto: z.string().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
   whatsapp: z.string().min(10, "WhatsApp deve ter pelo menos 10 dígitos").max(15, "WhatsApp inválido"),
-  cidade: z.string().min(2, "Cidade deve ter pelo menos 2 caracteres").max(100, "Cidade muito longa"),
   estado: z.string().min(2, "Estado deve ter pelo menos 2 caracteres").max(50, "Estado muito longo"),
   produtos: z.array(z.string()).min(1, "Selecione pelo menos um produto"),
   outrosProdutos: z.string().optional(),
@@ -146,31 +145,17 @@ const Orcamento = () => {
                     )}
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="cidade">Cidade</Label>
-                      <Input
-                        id="cidade"
-                        {...register("cidade")}
-                        placeholder="Sua cidade"
-                        className="mt-1"
-                      />
-                      {errors.cidade && (
-                        <p className="text-destructive text-sm mt-1">{errors.cidade.message}</p>
-                      )}
-                    </div>
-                    <div>
-                      <Label htmlFor="estado">Estado</Label>
-                      <Input
-                        id="estado"
-                        {...register("estado")}
-                        placeholder="Seu estado"
-                        className="mt-1"
-                      />
-                      {errors.estado && (
-                        <p className="text-destructive text-sm mt-1">{errors.estado.message}</p>
-                      )}
-                    </div>
+                  <div>
+                    <Label htmlFor="estado">Estado</Label>
+                    <Input
+                      id="estado"
+                      {...register("estado")}
+                      placeholder="Seu estado"
+                      className="mt-1"
+                    />
+                    {errors.estado && (
+                      <p className="text-destructive text-sm mt-1">{errors.estado.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -275,7 +260,7 @@ const Orcamento = () => {
                     onValueChange={(value) => setValue("prazo", value)}
                   >
                     <div className="grid md:grid-cols-2 gap-3">
-                      {["Até 30 dias", "Até 3 meses"].map((prazo) => (
+                      {["Até 45 dias", "Até 3 meses"].map((prazo) => (
                         <div key={prazo} className="flex items-center space-x-2 bg-white/60 rounded-lg p-3 border border-brand-purple-light/10">
                           <RadioGroupItem value={prazo} id={prazo} />
                           <Label htmlFor={prazo} className="font-medium">{prazo}</Label>
@@ -298,8 +283,8 @@ const Orcamento = () => {
                   <div>
                     <Textarea
                       {...register("informacaoAdicional")}
-                      placeholder="Descreva detalhes específicos sobre seu projeto, estilo desejado, dimensões do espaço, etc."
-                      className="min-h-[100px]"
+                      placeholder="Ex: Procedimentos realizados (corte, coloração, tratamentos), cores desejadas para os móveis, dimensões do espaço, estilo preferido (moderno, clássico), quantidade de clientes atendidos por dia..."
+                      className="min-h-[120px]"
                     />
                     {errors.informacaoAdicional && (
                       <p className="text-destructive text-sm mt-1">{errors.informacaoAdicional.message}</p>

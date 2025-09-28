@@ -121,15 +121,15 @@ const Home = () => {
               <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
-                    src="/src/assets/bancada-elegance.jpg" 
-                    alt="Bancada Elegance"
+                    src="/src/assets/cadeira-lisboa.jpg" 
+                    alt="Cadeira Lisboa"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">Bancada Elegance</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">Cadeira Lisboa</h3>
                   <p className="text-muted-foreground italic">
-                    Sofisticação e funcionalidade que impressionam desde o primeiro olhar.
+                    Elegância e funcionalidade que transformam qualquer ambiente.
                   </p>
                 </div>
               </div>
@@ -138,18 +138,28 @@ const Home = () => {
               <div className="group relative overflow-hidden rounded-2xl bg-white shadow-elegant hover:shadow-glow transition-all duration-500">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
-                    src="/src/assets/estacao-premium.jpg" 
-                    alt="Estação Premium"
+                    src="/src/assets/lavatorio-vogue.jpg" 
+                    alt="Lavatório Vogue"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">Estação Premium</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">Lavatório Vogue</h3>
                   <p className="text-muted-foreground italic">
-                    Design inteligente que maximiza produtividade e estilo.
+                    Modernidade e praticidade que encantam a cada lavagem.
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Second CTA Button After Products */}
+            <div className="text-center mt-16">
+              <Link to="/orcamento">
+                <HeroButton size="lg" className="group">
+                  Solicitar Orçamento Agora
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </HeroButton>
+              </Link>
             </div>
           </div>
         </section>
