@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -48,11 +52,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          purple: {
-            dark: "hsl(var(--brand-purple-dark))",
-            light: "hsl(var(--brand-purple-light))",
-          },
-          silver: "hsl(var(--brand-silver))",
+          gold: "hsl(var(--brand-gold))",
+          "gold-light": "hsl(var(--brand-gold-light))",
+          dark: "hsl(var(--brand-dark))",
+          "dark-light": "hsl(var(--brand-dark-light))",
+          accent: "hsl(var(--brand-accent))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -67,12 +71,14 @@ export default {
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
-        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-gold': 'var(--gradient-gold)',
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-overlay': 'var(--gradient-overlay)',
       },
       boxShadow: {
         'elegant': 'var(--shadow-elegant)',
         'glow': 'var(--shadow-glow)',
+        'gold': 'var(--shadow-gold)',
       },
       transitionTimingFunction: {
         'smooth': 'var(--transition-smooth)',

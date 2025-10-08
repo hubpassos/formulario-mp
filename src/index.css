@@ -8,41 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Móveis Passos Brand Colors */
-    --brand-purple-dark: 268 45% 36%; /* #5A3983 */
-    --brand-purple-light: 268 42% 56%; /* #8964b6 */
-    --brand-silver: 240 5% 84%; /* Silver accent */
+    /* Sophisticated Gold & Dark Color Palette */
+    --brand-gold: 43 84% 60%; /* Luxury gold #E6B75E */
+    --brand-gold-light: 43 96% 75%; /* Light gold accent */
+    --brand-dark: 240 8% 12%; /* Deep charcoal #1A1D23 */
+    --brand-dark-light: 240 6% 18%; /* Lighter charcoal */
+    --brand-accent: 200 18% 46%; /* Sophisticated teal accent */
     
     /* Main System Colors */
     --background: 0 0% 100%;
-    --foreground: 268 45% 36%;
+    --foreground: 240 8% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 268 45% 36%;
+    --card-foreground: 240 8% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 268 45% 36%;
+    --popover-foreground: 240 8% 12%;
 
-    --primary: 268 45% 36%; /* Brand purple dark */
-    --primary-foreground: 0 0% 100%;
+    --primary: 43 84% 60%; /* Gold */
+    --primary-foreground: 240 8% 12%;
 
-    --secondary: 268 42% 96%; /* Very light purple */
-    --secondary-foreground: 268 45% 36%;
+    --secondary: 240 8% 97%; /* Very light gray */
+    --secondary-foreground: 240 8% 12%;
 
     --muted: 240 5% 96%;
-    --muted-foreground: 268 15% 50%;
+    --muted-foreground: 240 6% 45%;
 
-    --accent: 268 42% 56%; /* Brand purple light */
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 96% 75%; /* Light gold */
+    --accent-foreground: 240 8% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5% 91%;
+    --border: 240 5% 90%;
     --input: 240 5% 95%;
-    --ring: 268 42% 56%;
+    --ring: 43 84% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,16 +102,19 @@ All colors MUST be HSL.
   }
 }
 
-/* Custom gradients and effects for Móveis Passos */
+/* Custom gradients and effects for Móveis Passos - Sophisticated Design */
 :root {
-  --gradient-primary: linear-gradient(135deg, hsl(var(--brand-purple-dark)), hsl(var(--brand-purple-light)));
-  --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-purple-light)), hsl(var(--brand-silver)));
-  --gradient-hero: linear-gradient(135deg, hsl(var(--brand-purple-dark)) 0%, hsl(var(--brand-purple-light)) 50%, hsl(var(--brand-silver)) 100%);
+  --gradient-primary: linear-gradient(135deg, hsl(var(--brand-dark)) 0%, hsl(var(--brand-dark-light)) 100%);
+  --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)) 0%, hsl(var(--brand-gold-light)) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(var(--brand-dark)) 0%, hsl(var(--brand-dark-light)) 60%, hsl(var(--brand-dark)) 100%);
+  --gradient-overlay: linear-gradient(180deg, hsl(var(--brand-dark) / 0.95) 0%, hsl(var(--brand-dark) / 0.85) 100%);
   
-  --shadow-elegant: 0 10px 30px -10px hsl(var(--brand-purple-dark) / 0.3);
-  --shadow-glow: 0 0 40px hsl(var(--brand-purple-light) / 0.2);
+  --shadow-elegant: 0 20px 60px -15px hsl(var(--brand-dark) / 0.4);
+  --shadow-glow: 0 0 80px hsl(var(--brand-gold) / 0.15);
+  --shadow-gold: 0 4px 20px hsl(var(--brand-gold) / 0.3);
   
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @layer base {
@@ -118,10 +123,36 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-light;
+    @apply bg-background text-foreground font-light antialiased;
   }
 
   h1, h2, h3 {
-    @apply font-medium tracking-tight;
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .luxury-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 backdrop-blur-sm text-sm font-medium;
+  }
+  
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+  
+  .container-wide {
+    @apply container mx-auto px-4 lg:px-8 max-w-7xl;
   }
 }

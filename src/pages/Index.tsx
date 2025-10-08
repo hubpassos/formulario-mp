@@ -127,92 +127,111 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 py-4">
+      {/* Header - Sophisticated */}
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm">
+        <div className="container-wide py-5">
           <div className="flex items-center justify-between">
             <Logo />
-            <div className="hidden md:flex items-center gap-6">
-              <a href="#produtos" className="text-muted-foreground hover:text-primary transition-colors">
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#produtos" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Produtos
               </a>
-              <a href="#sobre" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Sobre Nós
               </a>
-              <a href="#depoimentos" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#depoimentos" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Depoimentos
               </a>
               <Link to="/orcamento">
-                <Button>Fazer Orçamento</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-brand-dark shadow-gold">
+                  Fazer Orçamento
+                </Button>
               </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-hero">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 text-center">
-          <Badge className="mb-6 bg-white/20 text-white border-white/30">
-            <Sparkles className="h-4 w-4 mr-2" />
-            Móveis Premium para Salão de Beleza
-          </Badge>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Transforme seu 
-            <span className="block bg-gradient-to-r from-white to-brand-silver bg-clip-text text-transparent">
-              Salão dos Sonhos
-            </span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Móveis premium com design inovador, conforto excepcional e durabilidade garantida. 
-            Eleve o padrão do seu salão e encante seus clientes.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/orcamento">
-              <HeroButton size="lg" className="px-12 py-4">
-                <Heart className="h-5 w-5 mr-2" />
-                Fazer Orçamento Grátis
-              </HeroButton>
-            </Link>
-            <HeroButton variant="secondary" size="lg" className="px-12 py-4">
-              <Phone className="h-5 w-5 mr-2" />
-              (11) 99999-9999
-            </HeroButton>
-          </div>
-          
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/80">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-green-400" />
-              <span>Entrega Grátis</span>
+      {/* Hero Section - Sophisticated */}
+      <section className="relative min-h-screen flex items-center bg-gradient-primary overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-gradient-overlay"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative container-wide text-white z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <Badge className="luxury-badge border-primary text-primary">
+              <Sparkles className="h-4 w-4" />
+              Excelência em Móveis para Salão de Beleza
+            </Badge>
+            
+            <h1 className="font-serif leading-tight">
+              <span className="block text-white/90">Eleve seu Salão ao</span>
+              <span className="block bg-gradient-gold bg-clip-text text-transparent mt-2">
+                Mais Alto Padrão
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed font-light">
+              Móveis premium sob medida que combinam design sofisticado, 
+              conforto excepcional e durabilidade incomparável.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <Link to="/orcamento">
+                <Button size="lg" className="px-10 py-6 text-lg font-medium bg-primary hover:bg-primary/90 text-brand-dark shadow-gold transition-all duration-300 hover:shadow-glow hover:scale-105">
+                  <Heart className="h-5 w-5 mr-2" />
+                  Solicitar Orçamento
+                </Button>
+              </Link>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-10 py-6 text-lg font-medium border-2 border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                (11) 99999-9999
+              </Button>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-green-400" />
-              <span>Montagem Inclusa</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-green-400" />
-              <span>Garantia 2 Anos</span>
+            
+            <div className="pt-12 flex flex-wrap justify-center gap-8 text-white/70 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span>Entrega em Todo Brasil</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span>Montagem Profissional</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span>Garantia Estendida</span>
+              </div>
             </div>
           </div>
         </div>
+        
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
       </section>
 
-      {/* Benefícios */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container mx-auto px-4">
+      {/* Benefícios - Sophisticated Cards */}
+      <section className="section-padding bg-secondary/50">
+        <div className="container-wide">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beneficios.map((beneficio, index) => (
-              <Card key={index} className="text-center hover:shadow-glow transition-all duration-300">
-                <CardContent className="pt-6">
-                  <div className="mx-auto w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white mb-4">
+              <Card 
+                key={index} 
+                className="text-center border-0 shadow-elegant hover:shadow-glow transition-all duration-500 hover:-translate-y-2 bg-card"
+              >
+                <CardContent className="pt-8 pb-6 px-6">
+                  <div className="mx-auto w-16 h-16 bg-gradient-gold rounded-2xl flex items-center justify-center text-brand-dark mb-6 shadow-gold">
                     {beneficio.icon}
                   </div>
-                  <h3 className="font-semibold mb-2">{beneficio.titulo}</h3>
-                  <p className="text-muted-foreground text-sm">{beneficio.descricao}</p>
+                  <h3 className="font-serif font-semibold mb-3 text-lg">{beneficio.titulo}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{beneficio.descricao}</p>
                 </CardContent>
               </Card>
             ))}
@@ -220,48 +239,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Produtos em Destaque */}
-      <section id="produtos" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4">
-              <Scissors className="h-4 w-4 mr-2" />
-              Produtos em Destaque
+      {/* Produtos em Destaque - Premium Showcase */}
+      <section id="produtos" className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="text-center mb-20">
+            <Badge className="luxury-badge mb-6">
+              <Scissors className="h-4 w-4" />
+              Coleção Premium
             </Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Móveis que Fazem a Diferença
+            <h2 className="font-serif mb-6">
+              Móveis que Transformam
+              <span className="block text-primary mt-2">Experiências</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Descubra nossa coleção premium de móveis para salão de beleza, 
-              projetados para máximo conforto e estilo.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Cada peça é cuidadosamente projetada para oferecer conforto excepcional 
+              e estética sofisticada ao seu salão.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {produtos.map((produto) => (
-              <Card key={produto.id} className="overflow-hidden hover:shadow-elegant transition-all duration-300 group">
-                <div className="relative overflow-hidden">
+              <Card 
+                key={produto.id} 
+                className="overflow-hidden border-0 shadow-elegant hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group bg-card"
+              >
+                <div className="relative overflow-hidden bg-secondary/30">
                   <img 
                     src={produto.imagem} 
                     alt={produto.nome}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <Badge className="absolute top-4 left-4 bg-primary">
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Badge className="absolute top-6 left-6 bg-primary/90 backdrop-blur-sm text-brand-dark border-0 shadow-gold">
                     {produto.categoria}
                   </Badge>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{produto.nome}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">{produto.descricao}</p>
+                <CardContent className="p-8">
+                  <h3 className="font-serif text-2xl font-semibold mb-3">{produto.nome}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{produto.descricao}</p>
                   
-                  <div className="space-y-2 mb-4">
-                    <div className="text-2xl font-bold text-primary">{produto.preco}</div>
-                    <div className="text-sm text-green-600">{produto.valorAvista}</div>
+                  <div className="space-y-2 mb-6 pb-6 border-b border-border">
+                    <div className="text-3xl font-serif font-bold text-foreground">{produto.preco}</div>
+                    <div className="text-sm text-primary font-medium">{produto.valorAvista}</div>
                     <div className="text-sm text-muted-foreground">{produto.parcelas}</div>
                   </div>
                   
-                  <Link to="/orcamento" className="w-full">
-                    <Button className="w-full">
+                  <Link to="/orcamento" className="w-full block">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-brand-dark shadow-gold hover:shadow-glow transition-all duration-300">
                       Solicitar Orçamento
                     </Button>
                   </Link>
@@ -270,71 +294,96 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link to="/orcamento">
-              <HeroButton size="lg">
-                Ver Todos os Produtos
-              </HeroButton>
+              <Button size="lg" variant="outline" className="px-12 py-6 text-lg border-2 hover:bg-secondary">
+                Ver Catálogo Completo
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Sobre Nós */}
-      <section id="sobre" className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Sobre Nós - Sophisticated About */}
+      <section id="sobre" className="section-padding bg-gradient-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-overlay"></div>
+        <div className="absolute -right-20 -top-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        
+        <div className="container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4">
-                <Award className="h-4 w-4 mr-2" />
-                Nossa História
+              <Badge className="luxury-badge mb-6 border-primary/30 bg-primary/10 text-primary">
+                <Award className="h-4 w-4" />
+                Nossa Excelência
               </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                15 Anos Transformando Salões de Beleza
+              <h2 className="font-serif mb-6 text-white">
+                15 Anos Transformando
+                <span className="block text-primary mt-2">Salões de Beleza</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Desde 2009, a Móveis Passos é referência em móveis premium para salões de beleza. 
-                Nossa missão é transformar espaços em ambientes únicos, proporcionando conforto 
-                e elegância que seus clientes merecem.
+              <p className="text-lg text-white/80 mb-8 leading-relaxed">
+                Desde 2009, somos referência nacional em móveis premium para salões de beleza. 
+                Nossa missão é criar ambientes únicos que elevam a experiência dos seus clientes 
+                e fortalecem a identidade do seu negócio.
               </p>
               
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">5000+</div>
-                  <div className="text-muted-foreground">Salões Atendidos</div>
+              <div className="grid grid-cols-2 gap-8 mb-10">
+                <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                  <div className="text-4xl font-serif font-bold text-primary mb-2">5000+</div>
+                  <div className="text-white/70 text-sm">Salões Atendidos</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">15</div>
-                  <div className="text-muted-foreground">Anos de Experiência</div>
+                <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                  <div className="text-4xl font-serif font-bold text-primary mb-2">15</div>
+                  <div className="text-white/70 text-sm">Anos de Experiência</div>
                 </div>
               </div>
               
               <Link to="/orcamento">
-                <HeroButton>
-                  Conhecer Mais Produtos
-                </HeroButton>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-brand-dark shadow-gold">
+                  Solicitar Orçamento Personalizado
+                </Button>
               </Link>
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-primary rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">Por que escolher a Móveis Passos?</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Materiais premium importados e nacionais</span>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-10 border border-white/20 shadow-glow">
+                <h3 className="font-serif text-2xl font-semibold mb-6 text-white">Por que Escolher a Móveis Passos?</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-4 group">
+                    <div className="mt-1 p-2 bg-primary/20 rounded-lg">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-white mb-1">Materiais Premium</div>
+                      <div className="text-white/70 text-sm">Componentes importados e nacionais de primeira linha</div>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Design exclusivo e personalização disponível</span>
+                  <li className="flex items-start gap-4 group">
+                    <div className="mt-1 p-2 bg-primary/20 rounded-lg">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-white mb-1">Design Exclusivo</div>
+                      <div className="text-white/70 text-sm">Personalização completa para refletir sua marca</div>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Entrega e montagem em todo o Brasil</span>
+                  <li className="flex items-start gap-4 group">
+                    <div className="mt-1 p-2 bg-primary/20 rounded-lg">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-white mb-1">Entrega Nacional</div>
+                      <div className="text-white/70 text-sm">Logística especializada e montagem profissional</div>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Garantia estendida e suporte técnico</span>
+                  <li className="flex items-start gap-4 group">
+                    <div className="mt-1 p-2 bg-primary/20 rounded-lg">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-white mb-1">Suporte Dedicado</div>
+                      <div className="text-white/70 text-sm">Garantia estendida e assistência técnica especializada</div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -343,37 +392,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section id="depoimentos" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4">
-              <Star className="h-4 w-4 mr-2" />
+      {/* Depoimentos - Elegant Testimonials */}
+      <section id="depoimentos" className="section-padding bg-secondary/50">
+        <div className="container-wide">
+          <div className="text-center mb-20">
+            <Badge className="luxury-badge mb-6">
+              <Star className="h-4 w-4" />
               Depoimentos
             </Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              O que Nossos Clientes Dizem
+            <h2 className="font-serif mb-6">
+              A Confiança de
+              <span className="block text-primary mt-2">Mais de 5000 Salões</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Mais de 5000 salões de beleza confiam na qualidade dos nossos móveis.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Profissionais que escolheram excelência e transformaram seus espaços.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {depoimentos.map((depoimento, index) => (
-              <Card key={index} className="hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
+              <Card 
+                key={index} 
+                className="border-0 shadow-elegant hover:shadow-glow transition-all duration-500 hover:-translate-y-2 bg-card"
+              >
+                <CardContent className="p-8">
+                  <div className="flex mb-6">
                     {[...Array(depoimento.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 italic">
+                  <p className="text-muted-foreground mb-6 italic leading-relaxed text-lg">
                     "{depoimento.depoimento}"
                   </p>
-                  <div>
-                    <div className="font-semibold">{depoimento.nome}</div>
-                    <div className="text-sm text-muted-foreground">{depoimento.salao}</div>
+                  <div className="pt-4 border-t border-border">
+                    <div className="font-serif font-semibold text-lg">{depoimento.nome}</div>
+                    <div className="text-sm text-primary">{depoimento.salao}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -382,74 +435,91 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-20 bg-gradient-primary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Pronto para Transformar seu Salão?
+      {/* CTA Final - Premium Call to Action */}
+      <section className="section-padding bg-gradient-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-overlay"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container-wide text-center relative z-10">
+          <h2 className="font-serif mb-6 text-white">
+            Pronto para Elevar seu
+            <span className="block text-primary mt-2">Salão ao Próximo Nível?</span>
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Solicite seu orçamento gratuito e descubra como nossos móveis premium 
-            podem elevar o padrão do seu salão de beleza.
+          <p className="text-xl mb-12 max-w-2xl mx-auto text-white/80 leading-relaxed">
+            Solicite seu orçamento personalizado e gratuito. Nossa equipe de especialistas 
+            está pronta para criar a solução perfeita para o seu espaço.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/orcamento">
-              <HeroButton variant="secondary" size="lg" className="px-12 py-4">
+              <Button size="lg" className="px-12 py-6 text-lg bg-primary hover:bg-primary/90 text-brand-dark shadow-gold hover:shadow-glow transition-all duration-300">
                 <Heart className="h-5 w-5 mr-2" />
-                Fazer Orçamento Agora
-              </HeroButton>
+                Solicitar Orçamento Grátis
+              </Button>
             </Link>
-            <HeroButton variant="outline" size="lg" className="px-12 py-4 border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-12 py-6 text-lg border-2 border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white hover:text-brand-dark transition-all duration-300"
+            >
               <Phone className="h-5 w-5 mr-2" />
-              Ligar Agora: (11) 99999-9999
-            </HeroButton>
+              (11) 99999-9999
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Footer - Sophisticated */}
+      <footer className="py-16 bg-brand-dark text-white border-t border-white/10">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
               <Logo />
-              <p className="mt-4 text-primary-foreground/80">
-                Móveis premium para salão de beleza há mais de 15 anos.
+              <p className="mt-6 text-white/60 leading-relaxed">
+                Transformando salões de beleza com móveis premium e design sofisticado há mais de 15 anos.
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Contato</h3>
-              <div className="space-y-2 text-primary-foreground/80">
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
+              <h3 className="font-serif font-semibold text-lg mb-6 text-primary">Contato</h3>
+              <div className="space-y-4 text-white/70">
+                <div className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </div>
                   <span>(11) 99999-9999</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
+                <div className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <MapPin className="h-4 w-4 text-primary" />
+                  </div>
                   <span>São Paulo, SP</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
+                <div className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Clock className="h-4 w-4 text-primary" />
+                  </div>
                   <span>Seg-Sex: 8h às 18h</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Links Úteis</h3>
-              <div className="space-y-2 text-primary-foreground/80">
-                <div><a href="#produtos" className="hover:text-white transition-colors">Produtos</a></div>
-                <div><a href="#sobre" className="hover:text-white transition-colors">Sobre Nós</a></div>
-                <div><Link to="/orcamento" className="hover:text-white transition-colors">Orçamento</Link></div>
-                <div><a href="#depoimentos" className="hover:text-white transition-colors">Depoimentos</a></div>
+              <h3 className="font-serif font-semibold text-lg mb-6 text-primary">Links Úteis</h3>
+              <div className="space-y-3 text-white/70">
+                <div><a href="#produtos" className="hover:text-primary transition-colors">Produtos</a></div>
+                <div><a href="#sobre" className="hover:text-primary transition-colors">Sobre Nós</a></div>
+                <div><Link to="/orcamento" className="hover:text-primary transition-colors">Orçamento</Link></div>
+                <div><a href="#depoimentos" className="hover:text-primary transition-colors">Depoimentos</a></div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
-            <p>&copy; 2024 Móveis Passos. Todos os direitos reservados.</p>
+          <div className="border-t border-white/10 pt-8 text-center">
+            <p className="text-white/50 text-sm">&copy; 2024 Móveis Passos. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
