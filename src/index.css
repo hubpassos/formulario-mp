@@ -8,43 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Sophisticated Gold & Dark Color Palette */
-    --brand-gold: 43 84% 60%; /* Luxury gold #E6B75E */
-    --brand-gold-light: 43 96% 75%; /* Light gold accent */
-    --brand-dark: 240 8% 12%; /* Deep charcoal #1A1D23 */
-    --brand-dark-light: 240 6% 18%; /* Lighter charcoal */
-    --brand-accent: 200 18% 46%; /* Sophisticated teal accent */
+    /* Modern Purple & Minimalist Palette */
+    --brand-purple-primary: 267 75% 62%; /* Vibrant purple #8B5CF6 */
+    --brand-purple-dark: 267 85% 48%; /* Deep purple #6D28D9 */
+    --brand-purple-light: 267 100% 95%; /* Very light purple */
+    --brand-purple-subtle: 267 50% 97%; /* Almost white purple tint */
+    
+    /* Neutral System */
+    --neutral-50: 240 5% 98%;
+    --neutral-100: 240 5% 96%;
+    --neutral-200: 240 5% 90%;
+    --neutral-900: 240 6% 10%;
     
     /* Main System Colors */
     --background: 0 0% 100%;
-    --foreground: 240 8% 12%;
+    --foreground: 240 6% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 8% 12%;
+    --card-foreground: 240 6% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 8% 12%;
+    --popover-foreground: 240 6% 10%;
 
-    --primary: 43 84% 60%; /* Gold */
-    --primary-foreground: 240 8% 12%;
+    --primary: 267 75% 62%; /* Purple primary */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 8% 97%; /* Very light gray */
-    --secondary-foreground: 240 8% 12%;
+    --secondary: 267 50% 97%; /* Subtle purple */
+    --secondary-foreground: 240 6% 10%;
 
     --muted: 240 5% 96%;
-    --muted-foreground: 240 6% 45%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 43 96% 75%; /* Light gold */
-    --accent-foreground: 240 8% 12%;
+    --accent: 267 85% 48%; /* Deep purple */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5% 90%;
-    --input: 240 5% 95%;
-    --ring: 43 84% 60%;
+    --border: 240 5% 92%;
+    --input: 240 5% 96%;
+    --ring: 267 75% 62%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -102,19 +107,21 @@ All colors MUST be HSL.
   }
 }
 
-/* Custom gradients and effects for Móveis Passos - Sophisticated Design */
+/* Modern Purple Design System */
 :root {
-  --gradient-primary: linear-gradient(135deg, hsl(var(--brand-dark)) 0%, hsl(var(--brand-dark-light)) 100%);
-  --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)) 0%, hsl(var(--brand-gold-light)) 100%);
-  --gradient-hero: linear-gradient(135deg, hsl(var(--brand-dark)) 0%, hsl(var(--brand-dark-light)) 60%, hsl(var(--brand-dark)) 100%);
-  --gradient-overlay: linear-gradient(180deg, hsl(var(--brand-dark) / 0.95) 0%, hsl(var(--brand-dark) / 0.85) 100%);
+  --gradient-purple: linear-gradient(135deg, hsl(var(--brand-purple-primary)) 0%, hsl(var(--brand-purple-dark)) 100%);
+  --gradient-purple-soft: linear-gradient(180deg, hsl(var(--brand-purple-light)) 0%, hsl(var(--background)) 100%);
+  --gradient-mesh: radial-gradient(at 40% 20%, hsl(var(--brand-purple-primary) / 0.15) 0px, transparent 50%),
+                    radial-gradient(at 80% 0%, hsl(var(--brand-purple-dark) / 0.1) 0px, transparent 50%),
+                    radial-gradient(at 0% 50%, hsl(var(--brand-purple-primary) / 0.08) 0px, transparent 50%);
   
-  --shadow-elegant: 0 20px 60px -15px hsl(var(--brand-dark) / 0.4);
-  --shadow-glow: 0 0 80px hsl(var(--brand-gold) / 0.15);
-  --shadow-gold: 0 4px 20px hsl(var(--brand-gold) / 0.3);
+  --shadow-soft: 0 2px 8px hsl(var(--brand-purple-primary) / 0.06);
+  --shadow-medium: 0 8px 24px hsl(var(--brand-purple-primary) / 0.12);
+  --shadow-large: 0 16px 48px hsl(var(--brand-purple-primary) / 0.18);
+  --shadow-purple-glow: 0 0 60px hsl(var(--brand-purple-primary) / 0.25);
   
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @layer base {
@@ -123,36 +130,47 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-light antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
   }
   
   h1 {
-    @apply text-4xl md:text-6xl lg:text-7xl;
+    @apply text-5xl md:text-6xl lg:text-7xl;
+    line-height: 1.1;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1.15;
   }
   
   h3 {
-    @apply text-xl md:text-2xl;
+    @apply text-2xl md:text-3xl lg:text-4xl;
   }
 }
 
 @layer components {
-  .luxury-badge {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 backdrop-blur-sm text-sm font-medium;
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
   }
   
-  .section-padding {
-    @apply py-20 lg:py-32;
+  .section-spacing {
+    @apply py-24 lg:py-32;
   }
   
-  .container-wide {
-    @apply container mx-auto px-4 lg:px-8 max-w-7xl;
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-large;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
   }
 }

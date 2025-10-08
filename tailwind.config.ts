@@ -52,11 +52,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          gold: "hsl(var(--brand-gold))",
-          "gold-light": "hsl(var(--brand-gold-light))",
-          dark: "hsl(var(--brand-dark))",
-          "dark-light": "hsl(var(--brand-dark-light))",
-          accent: "hsl(var(--brand-accent))",
+          purple: {
+            primary: "hsl(var(--brand-purple-primary))",
+            dark: "hsl(var(--brand-purple-dark))",
+            light: "hsl(var(--brand-purple-light))",
+            subtle: "hsl(var(--brand-purple-subtle))",
+          },
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -70,15 +71,15 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-primary': 'var(--gradient-primary)',
-        'gradient-gold': 'var(--gradient-gold)',
-        'gradient-hero': 'var(--gradient-hero)',
-        'gradient-overlay': 'var(--gradient-overlay)',
+        'gradient-purple': 'var(--gradient-purple)',
+        'gradient-purple-soft': 'var(--gradient-purple-soft)',
+        'gradient-mesh': 'var(--gradient-mesh)',
       },
       boxShadow: {
-        'elegant': 'var(--shadow-elegant)',
-        'glow': 'var(--shadow-glow)',
-        'gold': 'var(--shadow-gold)',
+        'soft': 'var(--shadow-soft)',
+        'medium': 'var(--shadow-medium)',
+        'large': 'var(--shadow-large)',
+        'purple-glow': 'var(--shadow-purple-glow)',
       },
       transitionTimingFunction: {
         'smooth': 'var(--transition-smooth)',
